@@ -42,7 +42,7 @@ const displayAllPhones = (phones, dataLimit) => {
                 <p class="card-text">
                     ${phone.slug}
                 </p>
-                <button onclick="showDetails('${phone.slug}')" class="btn btn-primary">Go somewhere</button>
+                <button onclick="showDetails('${phone.slug}')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Go somewhere</button>
             </div>
         </div>
       `;
@@ -85,7 +85,23 @@ const showDetails = async (id) => {
 
   const res = await fetch(url);
   const data = await res.json();
-  console.log(data.data.name);
+  console.log(data.data);
+
+  const phoneName = document.getElementById("modalTitle");
+  const releaseDate = document.getElementById("phone-date");
+  const phoneMemory = document.getElementById("phone-memory");
+  const phoneStorage = document.getElementById("phone-storage");
+
+  releaseDate.innerText = data.data.releaseDate
+    ? data.data.releaseDate
+    : "release data not found";
+  phoneName.innerText = data.data.name;
+  phoneMemory.innerText = data.data.mainFeatures.memory
+    ? data.data.mainFeatures.memory
+    : "no memory";
+  phoneStorage.innerText = data.data.mainFeatures.storage
+    ? data.data.mainFeatures.storage
+    : "no storage";
 };
 
 // show all button
