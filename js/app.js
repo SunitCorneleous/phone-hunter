@@ -5,11 +5,22 @@ const loadPhonesData = async (search) => {
   displayAllPhones(data.data);
 };
 
-loadPhonesData();
+// loadPhonesData();
 
 const displayAllPhones = (phones) => {
   const phonesContainer = document.getElementById("phones-container");
   phonesContainer.innerHTML = "";
+
+  // slice phone to 10 max
+  phones = phones.slice(0, 10);
+
+  // show no found message
+  const noFound = document.getElementById("no-found-message");
+  if (phones.length === 0) {
+    noFound.classList.remove("d-none");
+  } else {
+    noFound.classList.add("d-none");
+  }
 
   phones.forEach((phone) => {
     const div = document.createElement("div");
