@@ -40,8 +40,8 @@ const displayAllPhones = (phones) => {
 
     phonesContainer.appendChild(div);
     // stop loader
-    toggleSpinner(false);
   });
+  toggleSpinner(false);
 };
 
 document.getElementById("search-btn").addEventListener("click", () => {
