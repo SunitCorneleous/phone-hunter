@@ -55,7 +55,7 @@ const displayAllPhones = (phones, dataLimit) => {
                 <p class="card-text">
                     ${phone.slug}
                 </p>
-                <button onclick="showDetails('${phone.slug}')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Go somewhere</button>
+                <button onclick="showDetails('${phone.slug}')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Show details</button>
             </div>
         </div>
       `;
