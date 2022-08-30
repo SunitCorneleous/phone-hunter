@@ -16,8 +16,26 @@
       <h1 class="text-danger text-center my-5 fs-1">Phone Hunter</h1>
     </header>
     <main>
+      <!-- search field -->
+      <section class="container pb-5">
+        <div class="row g-3 align-items-center justify-content-center mx-auto">
+          <div class="col-auto">
+            <!-- search input -->
+            <input
+              type="text"
+              id="search-input"
+              class="form-control"
+              placeholder="Search Phone"
+            />
+          </div>
+          <!-- search button -->
+          <div class="col-auto">
+            <div class="btn btn-primary" id="search-btn">Search</div>
+          </div>
+        </div>
+      </section>
       <!-- all phones -->
-      <section class="container">
+      <section class="container mb-4">
         <div
           id="phones-container"
           class="row row-cols-1 row-cols-md-3 g-4"
