@@ -42,13 +42,28 @@
           id="phones-container"
           class="row row-cols-1 row-cols-md-3 g-4"
         ></div>
+        <!-- No phone found message -->
+        <div id="no-found-message" class="container d-none">
+          <h2 class="text-warning text-center">
+            No Phone Found! Please try again.
+          </h2>
+        </div>
       </section>
-      <!-- No phone found message -->
-      <div id="no-found-message" class="container d-none">
-        <h2 class="text-warning text-center">
-          No Phone Found! Please try again.
-        </h2>
-      </div>
+      <!-- loader -->
+      <section id="loader" class="d-none">
+        <div
+          style="height: 300px"
+          class="d-flex justify-content-center align-items-center"
+        >
+          <div
+            style="width: 60px; height: 60px"
+            class="spinner-border text-success"
+            role="status"
+          >
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- script -->
