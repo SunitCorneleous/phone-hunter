@@ -1,3 +1,4 @@
+// fetch api
 const loadPhonesData = async (search, dataLimit) => {
   const url = `https://openapi.programming-hero.com/api/phones?search=${search}`;
   const res = await fetch(url);
@@ -5,6 +6,7 @@ const loadPhonesData = async (search, dataLimit) => {
   displayAllPhones(data.data, dataLimit);
 };
 
+// display all data as cards
 const displayAllPhones = (phones, dataLimit) => {
   const phonesContainer = document.getElementById("phones-container");
   phonesContainer.innerHTML = "";
@@ -51,6 +53,7 @@ const displayAllPhones = (phones, dataLimit) => {
   toggleSpinner(false);
 };
 
+// search process function
 const searchProcess = (dataLimit) => {
   const searchInput = document.getElementById("search-input");
   const searchInputValue = searchInput.value;
@@ -61,10 +64,12 @@ const searchProcess = (dataLimit) => {
   loadPhonesData(searchInputValue, dataLimit);
 };
 
+// search button
 document.getElementById("search-btn").addEventListener("click", function () {
   searchProcess(10);
 });
 
+// spinner function
 const toggleSpinner = (isLoading) => {
   const loader = document.getElementById("loader");
   if (isLoading) {
@@ -74,6 +79,7 @@ const toggleSpinner = (isLoading) => {
   }
 };
 
+// show details button function
 const showDetails = async (id) => {
   const url = `https://openapi.programming-hero.com/api/phone/${id}`;
 
@@ -82,16 +88,19 @@ const showDetails = async (id) => {
   console.log(data.data.name);
 };
 
+// show all button
 document.getElementById("show-all-btn").addEventListener("click", function () {
   searchProcess();
 });
 
+// clear input field on focus
 document
   .getElementById("search-input")
   .addEventListener("focus", function (event) {
     event.target.value = "";
   });
 
+// search on pressing enter key
 document
   .getElementById("search-input")
   .addEventListener("keydown", function (event) {
