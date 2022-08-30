@@ -40,6 +40,7 @@ const displayAllPhones = (phones, dataLimit) => {
                 <p class="card-text">
                     ${phone.slug}
                 </p>
+                <button onclick="showDetails('${phone.slug}')" class="btn btn-primary">Go somewhere</button>
             </div>
         </div>
       `;
@@ -73,6 +74,14 @@ const toggleSpinner = (isLoading) => {
   }
 };
 
+const showDetails = async (id) => {
+  const url = `https://openapi.programming-hero.com/api/phone/${id}`;
+
+  const res = await fetch(url);
+  const data = await res.json();
+  console.log(data.data.name);
+};
+
 document.getElementById("show-all-btn").addEventListener("click", function () {
   searchProcess();
 });
@@ -81,4 +90,12 @@ document
   .getElementById("search-input")
   .addEventListener("focus", function (event) {
     event.target.value = "";
+  });
+
+document
+  .getElementById("search-input")
+  .addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      searchProcess(10);
+    }
   });
